@@ -5,18 +5,21 @@ elements = ["-", "-", "-",
             "-", "-", "-"]
 winner = ''
 
+
 # Show board after each step
 def showBoard():
   print(elements[0], elements[1], elements[2])
   print(elements[3], elements[4], elements[5])
   print(elements[6], elements[7], elements[8])
 
+
 # Return True if we have success combination for 'x' or 'o'
 def getSuccessCombinations(el):
   flag = False
-  if(checkSuccessCombination("x", el) or checkSuccessCombination("o", el)):
+  if (checkSuccessCombination("x", el) or checkSuccessCombination("o", el)):
     flag = True
   return flag
+
 
 # Check if we have success combination on board after each step
 def checkSuccessCombination(symbol, el):
@@ -27,13 +30,14 @@ def checkSuccessCombination(symbol, el):
     flag = True
   return flag
 
+
 # Player turn action
 def playerMove(symbol, player):
-  step = int(input("%s, your turn. Please enter Your step (numbers range 1-9): " %(player))) - 1
-  if(0 <= step < 9):
+  step = int(input("%s, your turn. Please enter Your step (numbers range 1-9): " % (player))) - 1
+  if (0 <= step < 9):
     while (elements[step] == 'x' or elements[step] == "o"):
       print("Step is already taken")
-      step = int(input("%s, your turn. Please enter Your step (numbers range 1-9): " %(player))) - 1
+      step = int(input("%s, your turn. Please enter Your step (numbers range 1-9): " % (player))) - 1
     elements[step] = symbol
     showBoard()
   else:
@@ -49,11 +53,18 @@ while not getSuccessCombinations(elements):
   playerMove("x", player_1)
   if (getSuccessCombinations(elements)):
     winner = player_1
+    print("Success!!!")
+    print("%s you are winner hahaha!!!" % (winner))
+    break
+  if (not '-' in elements):
+    print("Draw!!!")
     break
   playerMove("o", player_2)
   if (getSuccessCombinations(elements)):
     winner = player_2
+    print("Success!!!")
+    print("%s you are winner hahaha!!!" % (winner))
     break
-
-print("Success!!!")
-print("%s you are winner hahaha!!!" %(winner))
+  if (not '-' in elements):
+    print("Draw!!!")
+    break
