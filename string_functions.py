@@ -159,12 +159,15 @@ def mystripAll(mstr, symbol):
     new_mstr += i
   return new_mstr
 
+def main():
+  a = input()
+  b = list(input())
+  print(myIsSpace(a))
+  print(myJoin(a, b))
+  print(mylstrip("---Hello --- world---", '-'))
+  print(myrstrip("---Hello --- World---", '-'))
+  print(mystrip("---Hello --- World---", '-'))
+  print(mystripAll("---Hello --- World---", '-'))
 
-a = input()
-b = list(input())
-print(myIsSpace(a))
-print(myJoin(a, b))
-print(mylstrip("---Hello --- world---", '-'))
-print(myrstrip("---Hello --- World---", '-'))
-print(mystrip("---Hello --- World---", '-'))
-print(mystripAll("---Hello --- World---", '-'))
+if __name__ == '__main__':
+  main()
