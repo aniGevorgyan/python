@@ -45,26 +45,27 @@ def playerMove(symbol, player):
 
 
 # Program starts here
-player_1 = input("Hi player 1, please enter Your name: ")
-player_2 = input("Hi player 2, please enter Your name: ")
-showBoard()
-getSuccessCombinations(elements)
-while not getSuccessCombinations(elements):
-  playerMove("x", player_1)
-  if (getSuccessCombinations(elements)):
-    winner = player_1
-    print("Success!!!")
-    print("%s you are winner hahaha!!!" % (winner))
-    break
-  if (not '-' in elements):
-    print("Draw!!!")
-    break
-  playerMove("o", player_2)
-  if (getSuccessCombinations(elements)):
-    winner = player_2
-    print("Success!!!")
-    print("%s you are winner hahaha!!!" % (winner))
-    break
-  if (not '-' in elements):
-    print("Draw!!!")
-    break
+def main():
+  player_1 = input("Hi player 1, please enter Your name: ")
+  player_2 = input("Hi player 2, please enter Your name: ")
+  showBoard()
+  getSuccessCombinations(elements)
+  while not getSuccessCombinations(elements):
+    playerMove("x", player_1)
+    if (getSuccessCombinations(elements)):
+      winner = player_1
+      print("Success!!!")
+      print("%s you are winner hahaha!!!" % (winner))
+      break
+    if (not '-' in elements):
+      print("Draw!!!")
+      break
+    playerMove("o", player_2)
+    if (getSuccessCombinations(elements)):
+      winner = player_2
+      print("Success!!!")
+      print("%s you are winner hahaha!!!" % (winner))
+      break
+
+if(__name__ == '__main__'):
+  main()
